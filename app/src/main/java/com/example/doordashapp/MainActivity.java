@@ -1,11 +1,9 @@
 package com.example.doordashapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(String error) {
-                    Toast.makeText(mContext, error, Toast.LENGTH_LONG);
+                    Toast.makeText(mContext, error, Toast.LENGTH_LONG).show();
                 }
             }
         );

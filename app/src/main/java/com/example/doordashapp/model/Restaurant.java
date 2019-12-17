@@ -10,7 +10,7 @@ public class Restaurant {
     private int delivery_fee;
     private String status_type;
 
-    public Restaurant(String id, String coverImageUrl, String name, String description, String status)
+    public Restaurant(String id, String coverImageUrl, String name, String description, String status, int delivery_fee, String status_type)
     {
         this.id = id;
         if(!(coverImageUrl == null || coverImageUrl == ""))
@@ -18,6 +18,8 @@ public class Restaurant {
         this.name = name;
         this.description = description;
         this.status = status;
+        this.delivery_fee = delivery_fee;
+        this.status_type = status_type;
     }
 
     public String getCover_img_url() {
@@ -31,7 +33,6 @@ public class Restaurant {
     public String getStatus_type() {
         return status_type;
     }
-
 
     public String getId() {
         return id;

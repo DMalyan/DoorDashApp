@@ -39,6 +39,5 @@ public class ModelProvider {
                 callback.onFailure("ERROR: " + t.getMessage());
             }
         });
-
     }
 }

@@ -24,7 +24,7 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
     private Context mContext;
     private List<Restaurant> restaurantList;
 
-    public RestaurantAdapter(@NonNull Context context, ArrayList<Restaurant> list) {
+    public RestaurantAdapter(@NonNull Context context, List<Restaurant> list) {
         super(context, 0 , list);
         mContext = context;
         restaurantList = list;

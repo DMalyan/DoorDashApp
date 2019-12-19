@@ -9,7 +9,7 @@ public class Restaurant {
     private String status;
     private int delivery_fee;
     private String status_type;
-   // private String cover_img_placeholder_url="https://pngimage.net/wp-content/uploads/2018/06/image-placeholder-png-6.png";
+    private String cover_img_placeholder_url="https://pngimage.net/wp-content/uploads/2018/06/image-placeholder-png-6.png";
 
     public Restaurant(String name, String coverImageUrl, String description, String status)
     {
@@ -30,11 +30,12 @@ public class Restaurant {
         this.status_type = status_type;
     }
 
-    /*
+
     public String getPlaceholderUrl()
     {
         return cover_img_placeholder_url;
-    }*/
+    }
+
     public String getCover_img_url() {
         return cover_img_url;
     }

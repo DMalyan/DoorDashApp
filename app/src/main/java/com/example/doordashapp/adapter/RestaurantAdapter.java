@@ -33,11 +33,10 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
         TextView duration;
     }
 
-    public RestaurantAdapter(@NonNull Context context, int resource,  List<Restaurant> list) {
-        super(context, resource , list);
+    public RestaurantAdapter(@NonNull Context context, int resource) {
+        super(context, resource);
         mContext = context;
         mResource = resource;
-        //restaurantList = list;
     }
 
     @NonNull

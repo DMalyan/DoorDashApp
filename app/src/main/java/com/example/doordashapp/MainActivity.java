@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(List<Restaurant> restaurantList) {
                     listView = findViewById(R.id.restaurant_list);
-                    mAdapter = new RestaurantAdapter(mContext, R.layout.list_item, restaurantList);
+                    mAdapter = new RestaurantAdapter(mContext, R.layout.list_item);
                     listView.setAdapter(mAdapter);
 
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

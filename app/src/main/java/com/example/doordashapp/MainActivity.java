@@ -18,7 +18,7 @@ import com.example.doordashapp.model.Restaurant;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private ListView listView;
+    private ListView mListView;
     private RestaurantAdapter mAdapter;
     private Context mContext;
     private ModelProvider provider ;
@@ -37,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
             new ModelCallback<List<Restaurant>>() {
                 @Override
                 public void onSuccess(List<Restaurant> restaurantList) {
-                    listView = findViewById(R.id.restaurant_list);
-                    mAdapter = new RestaurantAdapter(mContext, R.layout.list_item);
-                    listView.setAdapter(mAdapter);
+                    mListView = findViewById(R.id.restaurant_list);
+                    mAdapter = new RestaurantAdapter(mContext, 1, restaurantList);
+                    mListView.setAdapter(mAdapter);
 
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                         public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
-                            Restaurant item = (Restaurant) listView.getItemAtPosition(position); //
+                            Restaurant item = (Restaurant) mListView.getItemAtPosition(position); //
                             Toast.makeText(mContext, item.getName(), Toast.LENGTH_SHORT).show();
                         }
                     });

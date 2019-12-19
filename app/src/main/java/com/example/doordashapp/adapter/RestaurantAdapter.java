@@ -23,90 +23,84 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 
     private Context mContext;
     private int mResource;
-    //private List<Restaurant> restaurantList;
     private int lastPosition = -1;
+    private List<Restaurant> mRestaurantList;
 
-    static class ViewHolder {
+    private static class ViewHolder {
         TextView name;
         TextView description;
         ImageView coverImage;
         TextView duration;
     }
 
-    public RestaurantAdapter(@NonNull Context context, int resource) {
-        super(context, resource);
+    public RestaurantAdapter(@NonNull Context context, int resource, List<Restaurant> list) {
+        super(context, R.layout.list_item, list);
         mContext = context;
-        mResource = resource;
+      //  mResource = resource;
+        mRestaurantList = list;
     }
-
+/*
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
-        String name = getItem(position).getName();
-        String description = getItem(position).getDescription();
-        String duration = getItem(position).getStatus();
-        String coverImageUrl = getItem(position).getCover_img_url();
-
-        //Create Restaurant object with this information
-        Restaurant rest = new Restaurant(name, coverImageUrl, description, duration);
-
-        final View result;
-        ViewHolder holder;
-
-        holder = new ViewHolder();
-
-        if(convertView == null)
-        {
-            LayoutInflater inflater = LayoutInflater.from(mContext);
-            convertView = inflater.inflate(mResource, parent,false);
-            holder.name = convertView.findViewById(R.id.textView_name);
-            holder.description = convertView.findViewById(R.id.textView_description);
-            holder.duration = convertView.findViewById(R.id.textView_status);
-            holder.coverImage = convertView.findViewById(R.id.imageView_cover_image);
-
-            result = convertView;
-            convertView.setTag(holder);
-        }
-        else
-        {
-            holder = (ViewHolder) convertView.getTag();
-            result = convertView;
-        }
-
-        Animation animation = AnimationUtils.loadAnimation(mContext,
-                (position > lastPosition) ? R.anim.load_down_anim : R.anim.load_up_anim);
-        result.startAnimation(animation);
-        lastPosition = position;
-
-        holder.name.setText(rest.getName());
-        holder.description.setText(rest.getDescription());
-        holder.duration.setText(rest.getStatus());
-        Picasso.get().load(rest.getCover_img_url()).into(holder.coverImage);
-
-        return convertView;
-/*
         View listItem = convertView;
 
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item,parent,false);
 
-        Restaurant current = this.restaurantList.get(position);
+        Restaurant current = mRestaurantList.get(position);
 
-        ImageView image = listItem.findViewById(R.id.imageView_coverimage);
-        Picasso.get().load(current.getCover_img_url()).into(image);
+        ImageView image = listItem.findViewById(R.id.imageView_cover_image);
+        String imageUri = current.getCover_img_url();
+        Picasso.get().load(imageUri).into(image);
 
         TextView name = listItem.findViewById(R.id.textView_name);
         name.setText(current.getName());
 
-        //TextView desc = listItem.findViewById(R.id.textView_description);
-        //desc.setText(current.getDescription());
+        TextView desc = listItem.findViewById(R.id.textView_description);
+        desc.setText(current.getDescription());
 
-        //TextView status = listItem.findViewById(R.id.textView_status);
-        //status.setText(current.getStatus());
-
+        TextView status = listItem.findViewById(R.id.textView_status);
+        status.setText(current.getStatus());
 
         return listItem;
-        */
+    }
+*/
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+        Restaurant current = getItem(position);
+        ViewHolder viewHolder;
+        final View result;
+
+        if (convertView == null) {
+            viewHolder = new ViewHolder();
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(R.layout.list_item, parent, false);
+            viewHolder.name = convertView.findViewById(R.id.textView_name);
+            viewHolder.description = convertView.findViewById(R.id.textView_description);
+            viewHolder.duration = convertView.findViewById(R.id.textView_status);
+            viewHolder.coverImage = convertView.findViewById(R.id.imageView_cover_image);
+
+            convertView.setTag(viewHolder);
+            result = convertView;
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+            result = convertView;
+        }
+
+        Animation animation = AnimationUtils.loadAnimation(mContext,
+                (position > lastPosition) ? R.anim.load_up_anim : R.anim.load_down_anim);
+        result.startAnimation(animation);
+        lastPosition = position;
+
+        viewHolder.name.setText(current.getName());
+        viewHolder.description.setText(current.getDescription());
+        viewHolder.duration.setText(current.getStatus());
+        Picasso.get().load(current.getCover_img_url()).into(viewHolder.coverImage);
+
+        return convertView;
     }
 }

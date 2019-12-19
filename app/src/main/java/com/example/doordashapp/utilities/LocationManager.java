@@ -6,8 +6,7 @@ public class LocationManager {
     private static LocationManager locationManager;
 
     public LocationManager()
-    {
-    }
+    { }
 
     public static LocationManager getInstance() {
 

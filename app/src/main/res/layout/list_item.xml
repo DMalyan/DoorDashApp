@@ -1,54 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="2">
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="5dip"
+        android:padding="3dip">
+
+        <ImageView
+            android:id="@+id/imageView_cover_image"
+            android:layout_width="150dip"
+            android:layout_height="150dip"
+            android:contentDescription="@string/restaurant_cover_image"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/thumbnail"
+        android:orientation="vertical">
+
+     <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="@string/RestaurantName"
+        android:textColor="#040404"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <!-- Restaurant Description -->
+    <TextView
+        android:id="@+id/textView_description"
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dip"
+        android:text="@string/RestaurantDescription"
+        android:textSize="13sp" />
+
+
+    </LinearLayout>
+    <!-- Restaurant Status -->
+    <TextView
+        android:id="@+id/textView_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/thumbnail"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="5dip"
+        android:paddingTop="85dip"
+        android:gravity="end"
+        android:maxLines="1"
+        android:text="@string/RestaurantStatus"
+        android:textColor="#363636"
+        android:textSize="13sp" />
+    <!--
 
     <ImageView
-        android:layout_column="0"
         android:id="@+id/imageView_coverimage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_gravity="fill"
-        android:padding="3dp"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="Restaurant cover url"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView_name"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:srcCompat="@tools:sample/avatars" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_column="1"
-        android:layout_gravity="fill_horizontal|center_vertical"
-        android:background="#3F51B5"
-        android:orientation="vertical"
-        android:padding="3dp">
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:maxLines="1"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_coverimage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Restaurant Name" />
 
-        <TextView
-            android:id="@+id/textView_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="20"
-            android:text="SAMPLE "
-            android:textSize="20sp"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="20"
-            android:text="description"
-            android:textSize="13sp" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_coverimage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_coverimage"
+        app:layout_constraintTop_toTopOf="@+id/imageView_coverimage" />
 
     <TextView
         android:id="@+id/textView_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_gravity="fill_horizontal|right"
-        android:background="#E91E63"
-        android:gravity="right"
-        android:text="44 min"
-        android:textSize="13sp" />
-</GridLayout>
+        android:background="#673AB7"
+        android:text="101 Mins"
+        android:textAlignment="textEnd"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_coverimage"
+        tools:layout_editor_absoluteX="281dp" />
+
+    <TextView
+        android:id="@+id/textView_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="description"
+        android:textSize="13sp"
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="158dp" />
+-->
+</RelativeLayout>

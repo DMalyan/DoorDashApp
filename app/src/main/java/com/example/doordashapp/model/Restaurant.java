@@ -5,16 +5,24 @@ public class Restaurant {
     private String id;
     private String name;
     private String description;
-    private String cover_img_url = "https://cdn.doordash.com/media/restaurant/cover/Armadillo-Willys-BBQ.png";
+    private String cover_img_url;
     private String status;
     private int delivery_fee;
     private String status_type;
+   // private String cover_img_placeholder_url="https://pngimage.net/wp-content/uploads/2018/06/image-placeholder-png-6.png";
+
+    public Restaurant(String name, String coverImageUrl, String description, String status)
+    {
+        this.name = name;
+        this.cover_img_url = coverImageUrl;
+        this.description = description;
+        this.status = status;
+    }
 
     public Restaurant(String id, String coverImageUrl, String name, String description, String status, int delivery_fee, String status_type)
     {
         this.id = id;
-        if(!(coverImageUrl == null || coverImageUrl == ""))
-            this.cover_img_url = coverImageUrl;
+        this.cover_img_url = coverImageUrl;
         this.name = name;
         this.description = description;
         this.status = status;
@@ -22,6 +30,11 @@ public class Restaurant {
         this.status_type = status_type;
     }
 
+    /*
+    public String getPlaceholderUrl()
+    {
+        return cover_img_placeholder_url;
+    }*/
     public String getCover_img_url() {
         return cover_img_url;
     }
@@ -49,5 +62,4 @@ public class Restaurant {
     public String getStatus(){
         return status;
     }
-
 }

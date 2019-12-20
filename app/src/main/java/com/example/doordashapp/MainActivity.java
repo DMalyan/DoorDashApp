@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void LoadData() {
+        Log.d(this.getClass().toString(), "Loading Restaurant List Data Started");
         provider.FetchRestaurants(
             new ModelCallback<List<Restaurant>>() {
                 @Override
@@ -53,10 +55,13 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(startDetailActivity);
                         }
                     });
+
+                    Log.d(this.getClass().toString(), "Loading Restaurant List Data Succeeded");
                 }
 
                 @Override
                 public void onFailure(String error) {
+                    Log.d(this.getClass().toString(), "Loading Restaurant List Data Failed");
                     Toast.makeText(mContext, error, Toast.LENGTH_LONG).show();
                 }
             }

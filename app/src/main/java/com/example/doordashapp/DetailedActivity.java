@@ -1,6 +1,7 @@
 package com.example.doordashapp;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +45,8 @@ public class DetailedActivity extends AppCompatActivity {
 
 
     private void LoadData() {
+        Log.d(this.getClass().toString(), "Loading Restaurant Detailed Data Started");
+
         mProvider.FetchRestaurant(
                 mRestaurantId, new ModelCallback<Restaurant>() {
                     @Override
@@ -62,10 +65,15 @@ public class DetailedActivity extends AppCompatActivity {
 
                         TextView deliveryFee = findViewById(R.id.detailed_delivery_fee);
                         deliveryFee.setText(data.getDelivery_fee());
+
+                        Log.d(this.getClass().toString(), "Loading Restaurant Detailed Data Succeeded");
+
                     }
 
                     @Override
                     public void onFailure(String error) {
+                        Log.d(this.getClass().toString(), "Loading Restaurant Detailed Data Failed");
+
                         Toast.makeText(mContext, error, Toast.LENGTH_LONG).show();
                     }
                 });

@@ -1,16 +1,21 @@
 package com.example.doordashapp.model;
 
+
 public class Restaurant {
 
+    //region FIELDS
     private String id;
     private String name;
     private String description;
     private String cover_img_url;
     private String status;
-    private int delivery_fee;
+    private String delivery_fee;
     private String status_type;
     //private String cover_img_placeholder_url="https://pngimage.net/wp-content/uploads/2018/06/image-placeholder-png-6.png";
 
+    //endregion
+
+    //region CONSTRUCTORS
     public Restaurant(String name, String coverImageUrl, String description, String status)
     {
         this.name = name;
@@ -19,7 +24,7 @@ public class Restaurant {
         this.status = status;
     }
 
-    public Restaurant(String id, String coverImageUrl, String name, String description, String status, int delivery_fee, String status_type)
+    public Restaurant(String id, String coverImageUrl, String name, String description, String status, String delivery_fee, String status_type)
     {
         this.id = id;
         this.cover_img_url = coverImageUrl;
@@ -29,18 +34,21 @@ public class Restaurant {
         this.delivery_fee = delivery_fee;
         this.status_type = status_type;
     }
+    //endregion
 
-/*
-    public String getPlaceholderUrl()
-    {
-        return cover_img_placeholder_url;
-    }
-*/
+    //region SETTERS and GETTERS
+
+    /*
+        public String getPlaceholderUrl()
+        {
+            return cover_img_placeholder_url;
+        }
+    */
     public String getCover_img_url() {
         return cover_img_url;
     }
 
-    public int getDelivery_fee() {
+    public String getDelivery_fee() {
         return delivery_fee;
     }
 
@@ -63,4 +71,17 @@ public class Restaurant {
     public String getStatus(){
         return status;
     }
+    //endregion
+
+    //region PUBLIC
+    //endregion
+
+    //region PRIVATE/PROTECTED
+    //endregion
+
+    //region OVERRIDDEN
+    //endregion
+
+
+
 }

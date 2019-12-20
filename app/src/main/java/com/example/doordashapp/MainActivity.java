@@ -3,6 +3,7 @@ package com.example.doordashapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -46,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
                             Restaurant item = (Restaurant) mListView.getItemAtPosition(position); //
                             Toast.makeText(mContext, item.getName(), Toast.LENGTH_SHORT).show();
+
+                            Intent startDetailActivity = new Intent(MainActivity.this, DetailedActivity.class);
+                            startDetailActivity.putExtra("ID", item.getId());
+                            //startDetailActivity.putExtra("item", item);
+                            startActivity(startDetailActivity);
                         }
                     });
                 }

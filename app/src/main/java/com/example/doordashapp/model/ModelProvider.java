@@ -12,8 +12,19 @@ import retrofit2.Retrofit;
 
 public class ModelProvider {
 
+    //region FIELDS
+    //endregion
+
+    //region CONSTRUCTORS
     public ModelProvider()
     {}
+    //endregion
+
+    //region SETTERS and GETTERS
+    //endregion
+
+    //region PUBLIC
+
 
     public void FetchRestaurants(final ModelCallback<List<Restaurant>> callback)
     {
@@ -40,4 +51,36 @@ public class ModelProvider {
             }
         });
     }
+
+    public void FetchRestaurant(int restaurantId, final ModelCallback<Restaurant> callback)
+    {
+        Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
+        GetDataService data = retrofit.create(GetDataService.class);
+
+        Call<Restaurant> call = data.getRestaurant(restaurantId);
+
+        call.enqueue(new Callback<Restaurant>() {
+            @Override
+            public void onResponse(Call<Restaurant> call, Response<Restaurant> response) {
+                if (!response.isSuccessful()) {
+                    callback.onFailure("ERROR: " + response.code());
+                    return;
+                }
+                callback.onSuccess(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Restaurant> call, Throwable t) {
+                callback.onFailure("ERROR: " + t.getMessage());
+            }
+        });
+    }
+    //endregion
+
+    //region PRIVATE/PROTECTED
+    //endregion
+
+    //region OVERRIDDEN
+    //endregion
+
 }

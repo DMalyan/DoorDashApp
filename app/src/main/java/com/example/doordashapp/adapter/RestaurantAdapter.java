@@ -21,51 +21,32 @@ import java.util.List;
 
 public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 
+    //region FIELDS
     private Context mContext;
     private int mResource;
     private int lastPosition = -1;
     private List<Restaurant> mRestaurantList;
+    //endregion
 
-    private static class ViewHolder {
-        TextView name;
-        TextView description;
-        ImageView coverImage;
-        TextView duration;
-    }
-
+    //region CONSTRUCTORS
     public RestaurantAdapter(@NonNull Context context, int resource, List<Restaurant> list) {
         super(context, R.layout.list_item, list);
         mContext = context;
-      //  mResource = resource;
+        //  mResource = resource;
         mRestaurantList = list;
     }
-/*
-    @NonNull
-    @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View listItem = convertView;
+    //endregion
 
-        if(listItem == null)
-            listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item,parent,false);
+    //region SETTERS and GETTERS
+    //endregion
 
-        Restaurant current = mRestaurantList.get(position);
+    //region PUBLIC
+    //endregion
 
-        ImageView image = listItem.findViewById(R.id.imageView_cover_image);
-        String imageUri = current.getCover_img_url();
-        Picasso.get().load(imageUri).into(image);
+    //region PRIVATE/PROTECTED
+    //endregion
 
-        TextView name = listItem.findViewById(R.id.textView_name);
-        name.setText(current.getName());
-
-        TextView desc = listItem.findViewById(R.id.textView_description);
-        desc.setText(current.getDescription());
-
-        TextView status = listItem.findViewById(R.id.textView_status);
-        status.setText(current.getStatus());
-
-        return listItem;
-    }
-*/
+    //region OVERRIDDEN
 
     @NonNull
     @Override
@@ -80,6 +61,7 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.list_item, parent, false);
             viewHolder.name = convertView.findViewById(R.id.textView_name);
+            viewHolder.id=(String)convertView.findViewById(R.id.textView_name).getTag();
             viewHolder.description = convertView.findViewById(R.id.textView_description);
             viewHolder.duration = convertView.findViewById(R.id.textView_status);
             viewHolder.coverImage = convertView.findViewById(R.id.imageView_cover_image);
@@ -100,7 +82,19 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
         viewHolder.description.setText(current.getDescription());
         viewHolder.duration.setText(current.getStatus());
         Picasso.get().load(current.getCover_img_url()).into(viewHolder.coverImage);
+        viewHolder.id=current.getId();
+
 
         return convertView;
+    }
+    //endregion
+
+
+    private static class ViewHolder {
+        TextView name;
+        TextView description;
+        ImageView coverImage;
+        TextView duration;
+        String id;
     }
 }

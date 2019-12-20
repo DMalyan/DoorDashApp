@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
                             Intent startDetailActivity = new Intent(MainActivity.this, DetailedActivity.class);
                             startDetailActivity.putExtra("ID", item.getId());
-                            //startDetailActivity.putExtra("item", item);
                             startActivity(startDetailActivity);
                         }
                     });

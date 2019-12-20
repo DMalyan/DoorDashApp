@@ -1,11 +1,5 @@
 package com.example.doordashapp;
 
-import android.content.Intent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Toast;
-
-import com.example.doordashapp.adapter.RestaurantAdapter;
 import com.example.doordashapp.model.ModelCallback;
 import com.example.doordashapp.model.ModelProvider;
 import com.example.doordashapp.model.Restaurant;

@@ -9,10 +9,8 @@ public class LocationManager {
     //endregion
 
     //region CONSTRUCTORS
-
     public LocationManager() {
     }
-
     //endregion
 
     //region SETTERS and GETTERS

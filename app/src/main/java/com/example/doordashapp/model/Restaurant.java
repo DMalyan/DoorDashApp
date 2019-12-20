@@ -11,8 +11,21 @@ public class Restaurant {
     private String status;
     private String delivery_fee;
     private String status_type;
-    //private String cover_img_placeholder_url="https://pngimage.net/wp-content/uploads/2018/06/image-placeholder-png-6.png";
+    private Business business;
 
+    public class Business
+    {
+        private String id;
+        public String getId() {
+            return id;
+        }
+
+        private String name;
+        public String getName() {
+            return name;
+        }
+
+    }
     //endregion
 
     //region CONSTRUCTORS
@@ -38,12 +51,9 @@ public class Restaurant {
 
     //region SETTERS and GETTERS
 
-    /*
-        public String getPlaceholderUrl()
-        {
-            return cover_img_placeholder_url;
-        }
-    */
+    public Business getBusiness() {
+        return business;
+    }
     public String getCover_img_url() {
         return cover_img_url;
     }

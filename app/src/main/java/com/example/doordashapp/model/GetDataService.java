@@ -12,6 +12,6 @@ public interface GetDataService {
                                           @Query("lng") double LNG);
 
     @GET("/v2/restaurant/{id}")
-    Call<Restaurant> getRestaurant(@Path("id") int id);
+    Call<Restaurant> getRestaurant(@Path("id") String id);
 
 }

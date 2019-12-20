@@ -17,7 +17,7 @@ public class DetailedActivity extends AppCompatActivity {
 
     private Context mContext;
     private ModelProvider mProvider;
-    private int mRestaurantId;
+    private String mRestaurantId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class DetailedActivity extends AppCompatActivity {
             } else {
             newString= (String) savedInstanceState.getSerializable("ID");
         }
-        mRestaurantId = Integer.parseInt(newString);
+        mRestaurantId = newString;
         LoadData();
     }
 

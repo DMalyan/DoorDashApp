@@ -78,12 +78,11 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
         result.startAnimation(animation);
         lastPosition = position;
 
-        viewHolder.name.setText(current.getName());
+        viewHolder.name.setText(current.getBusiness().getName());
         viewHolder.description.setText(current.getDescription());
         viewHolder.duration.setText(current.getStatus());
         Picasso.get().load(current.getCover_img_url()).into(viewHolder.coverImage);
-        viewHolder.id=current.getId();
-
+        viewHolder.id=current.getBusiness().getId();
 
         return convertView;
     }

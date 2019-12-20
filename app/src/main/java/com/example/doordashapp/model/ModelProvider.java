@@ -24,8 +24,6 @@ public class ModelProvider {
     //endregion
 
     //region PUBLIC
-
-
     public void FetchRestaurants(final ModelCallback<List<Restaurant>> callback)
     {
         Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
@@ -52,13 +50,12 @@ public class ModelProvider {
         });
     }
 
-    public void FetchRestaurant(int restaurantId, final ModelCallback<Restaurant> callback)
+    public void FetchRestaurant(String restaurantId, final ModelCallback<Restaurant> callback)
     {
         Retrofit retrofit = RetrofitClientInstance.getRetrofitInstance();
         GetDataService data = retrofit.create(GetDataService.class);
 
         Call<Restaurant> call = data.getRestaurant(restaurantId);
-
         call.enqueue(new Callback<Restaurant>() {
             @Override
             public void onResponse(Call<Restaurant> call, Response<Restaurant> response) {
@@ -82,5 +79,4 @@ public class ModelProvider {
 
     //region OVERRIDDEN
     //endregion
-
 }

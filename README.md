@@ -8,8 +8,8 @@ DoorDash Application to represent list of restaurants and detailed restaurant in
 3. Detailed restaurant screen 
 
 <p float="left">
-<img src="./screenshots/main_screen.png" width="300">
-<img src="./screenshots/detail_screen.png" width="300">
+<img src="./screenshots/main_screen.png" width="300" height="600">
+<img src="./screenshots/detail_screen.png" width="300" height="600">
 </p>
 
 ## What is tested

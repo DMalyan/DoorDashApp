@@ -7,8 +7,8 @@ DoorDash Application to represent list of restaurants and detailed restaurant in
 2. Scrolling animation for smooth scrolling
 3. Detailed restaurant screen 
 
-![Screenshot](./screenshots/main_screen.png){:height="50%" width="50%"}
-![Screenshot](./screenshots/detail_screen.png){:height="50%" width="50%"}
+![Screenshot|200x400](./screenshots/main_screen.png)
+![Screenshot|200x400](./screenshots/detail_screen.png)
 
 ## What is tested
 1. Unit test covers layer which queries list of restaurant from the server
